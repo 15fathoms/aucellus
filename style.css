@@ -256,6 +256,8 @@ footer {
         transform: translateY(-100%);
         opacity: 0;
     }
+
+
 }
 
 .visualizer.show {
@@ -270,6 +272,28 @@ footer {
     backdrop-filter: blur(10px);
     background: #000000;
     animation: visu .5s ease forwards;
+
+    .prev {
+        position: absolute;
+        left: 1rem;
+        letter-spacing: .4rem;
+
+    z-index: 2;
+    }
+
+    .next {
+        position: absolute;
+        right: 1rem;
+        letter-spacing: .4rem;
+    }
+
+    .close {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+    }
 
     .visualizer-wrapper {
         width: 100%;

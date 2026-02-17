@@ -22,18 +22,55 @@ window.onscroll = (e) => {
 }
 
 let visu = document.querySelector('.visualizer')
-
+let prev = document.querySelector('.prev')
+let next = document.querySelector('.next')
+let close = document.querySelector('.close')
 let imgs = document.querySelectorAll('.gallery-item img')
+let prevImg;
+let nextImg;
 
-visu.addEventListener('click', (e)=> {
-  if(e.target === visu.querySelector('img')){
-    return
+let currentImg;
+
+visu.addEventListener('click', function (e) {
+  if (e.target === prev && currentImg) {
+    const previous = currentImg.parentElement.previousElementSibling?.querySelector('img')
+
+    if (previous) {
+      currentImg = previous
+      this.querySelector('img').src = currentImg.src
+    }
+    else {
+      currentImg = currentImg.parentElement.parentElement.lastElementChild.querySelector('img')
+      this.querySelector('img').src = currentImg.src
+    }
   }
-  visu.classList.remove('show')
+
+  if (e.target === next && currentImg) {
+
+    const following = currentImg.parentElement.nextElementSibling?.querySelector('img')
+
+    if (following) {
+      currentImg = following
+      this.querySelector('img').src = currentImg.src
+    }
+    else {
+      currentImg = currentImg.parentElement.parentElement.firstElementChild.querySelector('img')
+      this.querySelector('img').src = currentImg.src
+    }
+  }
+
+  if (e.target === close) {
+    this.classList.remove('show')
+  }
 })
 
+
 imgs.forEach(img => {
-  img.addEventListener('click', (e)=> {
+  img.addEventListener('click', (e) => {
+    currentImg = img;
+    prevImg = img.parentElement.previousElementSibling?.querySelector('img') || null
+    nextImg = img.parentElement.nextElementSibling?.querySelector('img') || null
+    console.log(prevImg, nextImg)
     let src = img.src;
     let visuImg = visu.querySelector('img')
     visuImg.src = src

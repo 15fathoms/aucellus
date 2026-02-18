@@ -281,14 +281,15 @@ footer {
         position: absolute;
         left: 1rem;
         letter-spacing: .4rem;
-
-    z-index: 2;
+        z-index: 2;
+        padding: 1rem;
     }
 
     .next {
         position: absolute;
         right: 1rem;
         letter-spacing: .4rem;
+        padding: 1rem;
     }
 
     .close {

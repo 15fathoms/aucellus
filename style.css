@@ -30,12 +30,13 @@ ol {
 a {
     text-decoration: none;
     color: #D4D4D4;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .header-wrapper {
     width: 100%;
-    max-width: 144rem;
+    max-width: 108rem;
+    padding: 0 2rem;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -88,13 +89,41 @@ nav ul {
     justify-content: center;
     height: 100%;
 
+
     li {
 
         >a {
             font-family: "Montserrat", cursive;
-            font-size: 1.2rem;
+            font-size: 1.04rem;
             text-transform: uppercase;
+            padding: .8rem 1.4rem;
+            letter-spacing: 1.5px;
+            display: block;
+        }
 
+        .header-cta {
+            border: 1px solid #555 !important;
+            position: relative;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .header-cta::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            transform: translateX(-100%);
+            background: #D4D4D4;
+            transition: transform .5s ease;
+            z-index: -1;
+        }
+
+        .header-cta:hover::before{
+            transform: translateX(0);
+        }
+
+        .header-cta:hover {
+            color: #0A0A0A;
         }
     }
 }
@@ -139,7 +168,7 @@ nav ul {
 
     nav {
         position: fixed;
-        height: 100dvh;
+        height: 100vh;
         left: 0;
         top: 0;
         width: 100%;

@@ -12,7 +12,6 @@ requestAnimationFrame(raf);
 let header = document.querySelector('header')
 window.onscroll = (e) => {
   let scroll = window.scrollY
-  console.log(scroll)
   if (scroll > 200) {
     header.classList.add('active')
   }
@@ -78,3 +77,10 @@ imgs.forEach(img => {
   })
 })
 
+let toggleNav = document.querySelector('.toggleNav')
+let nav = document.querySelector('nav')
+
+toggleNav.addEventListener('click', function(e) {
+  this.classList.toggle('active')
+  nav.classList.toggle('active')
+})

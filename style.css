@@ -225,7 +225,7 @@ h2 {
     justify-content: center;
     text-align: center;
     position: relative;
-    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
     border-bottom: 1px solid #1E1E1E;
 

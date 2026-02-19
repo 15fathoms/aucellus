@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    user-select: none;
 }
 
 html {
@@ -226,15 +227,36 @@ h2 {
     position: relative;
     height: 100vh;
     overflow: hidden;
+    border-bottom: 1px solid #1E1E1E;
+
+    .ornaments {
+        margin-bottom: 3.2rem;
+        font-size: 2rem;
+        letter-spacing: 20px;
+        color: #555;
+        text-align: center;
+    }
 
     h1 {
         font-family: "UnifrakturCook", cursive;
-        font-size: clamp(5rem, 7vw, 9rem)
+        font-size: clamp(5rem, 7vw, 9rem);
+        line-height: 1.1;
+        margin-bottom: 1.6rem;
     }
 
     p {
         font-size: clamp(1.1rem, 3vw, 1.6rem);
         max-width: 600px;
+        letter-spacing: 2px;
+        font-size: 1.2rem;
+        font-weight: 300;
+        margin-bottom: 2.4rem;
+    }
+
+    .separator {
+        font-size: 1.9rem;
+        margin-bottom: 2.4rem;
+        color: #555;
     }
 
     img {
@@ -265,6 +287,22 @@ h2 {
     .hero-wrapper {
         position: absolute;
         inset: 0;
+    }
+
+    .hero-cta {
+        display: grid;
+        gap: 1rem;
+        
+        @media screen and (min-width: 769px){
+            grid-template-columns: repeat(2, 1fr);
+        }
+ 
+        a {
+            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }
 
@@ -544,6 +582,10 @@ footer {
     }
 }
 
+.section.contact {
+    background-color: #0A0A0A;
+}
+
 .btn {
     display: inline-block;
     padding: 13px 30px;
@@ -552,11 +594,16 @@ footer {
     font-weight: 500;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    background: var(--white);
-    color: var(--bg);
-    border: 1px solid var(--white);
+    background: black;
+    color: #D4D4D4;
+    border: 1px solid #D4D4D4;
     cursor: pointer;
-    transition: all var(--ease);
+    transition: all .5s;
+
+    &.btn-alt {
+        background: white;
+        color: #0A0A0A;
+    }
 }
 
 @keyframes test {

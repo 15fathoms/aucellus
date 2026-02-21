@@ -66,13 +66,13 @@ visu.addEventListener('click', function (e) {
 
 imgs.forEach(img => {
   img.addEventListener('click', (e) => {
-    currentImg = img;
-    prevImg = img.parentElement.previousElementSibling?.querySelector('img') || null
-    nextImg = img.parentElement.nextElementSibling?.querySelector('img') || null
-    console.log(prevImg, nextImg)
-    let src = img.src;
-    let visuImg = visu.querySelector('img')
-    visuImg.src = src
+    // currentImg = img;
+    // prevImg = img.parentElement.previousElementSibling?.querySelector('img') || null
+    // nextImg = img.parentElement.nextElementSibling?.querySelector('img') || null
+    // console.log(prevImg, nextImg)
+    // let src = img.src;
+    // let visuImg = visu.querySelector('img')
+    // visuImg.src = src
     visu.classList.add('show')
   })
 })
@@ -84,3 +84,41 @@ toggleNav.addEventListener('click', function(e) {
   this.classList.toggle('active')
   nav.classList.toggle('active')
 })
+
+
+let fragment = document.createDocumentFragment()
+imgs.forEach(img => {
+  let imgContainer = document.createElement('div')
+  imgContainer.classList.add('visualizer-item', 'swiper-slide')
+  let newImg = document.createElement('img')
+  newImg.src = img.src
+  imgContainer.appendChild(newImg)
+  fragment.appendChild(imgContainer)
+})
+
+let track = visu.querySelector('.visualizer-wrapper')
+track.appendChild(fragment)
+
+const swiper = new Swiper('.swiper', {
+  slidesPerView: 1,
+  spaceBetween: 0,
+  loop: false,
+  navigation: {
+    nextEl: '.next',
+    prevEl: '.prev',
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 40,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 50,
+    },
+  },
+});

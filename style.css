@@ -1,3 +1,13 @@
+:root {
+    --heading: 'UnifrakturCook', cursive;
+    --text: 'Montserrat', sans-serif;
+    --white: #D4D4D4;
+    --black: #000000;
+    --light-black: #0A0A0A;
+    --accent: #555;
+    --border: 1px solid #1E1E1E;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -10,9 +20,9 @@ html {
 }
 
 body {
-    background-color: black;
-    color: #D4D4D4;
-    font-family: "Montserrat", sans-serif;
+    background-color: var(--black);
+    color: var(--white);
+    font-family: var(--text);
     margin: 0;
     padding: 0;
     font-size: 1rem;
@@ -103,7 +113,7 @@ nav ul {
         }
 
         .header-cta {
-            border: 1px solid #555 !important;
+            border: var(--border);
             position: relative;
             overflow: hidden;
             z-index: 0;
@@ -114,7 +124,7 @@ nav ul {
             position: absolute;
             inset: 0;
             transform: translateX(-100%);
-            background: #D4D4D4;
+            background: var(--white);
             transition: transform .5s ease;
             z-index: -1;
         }
@@ -124,7 +134,7 @@ nav ul {
         }
 
         .header-cta:hover {
-            color: #0A0A0A;
+            color: var(--light-black)
         }
     }
 }
@@ -228,17 +238,19 @@ h2 {
     height: 100dvh;
     overflow: hidden;
     border-bottom: 1px solid #1E1E1E;
+    padding-top: 0;
+    padding-bottom: 0;
 
     .ornaments {
-        margin-bottom: 3.2rem;
+        margin-bottom: 2.4rem;
         font-size: 2rem;
         letter-spacing: 20px;
-        color: #555;
+        color: var(--accent);
         text-align: center;
     }
 
     h1 {
-        font-family: "UnifrakturCook", cursive;
+        font-family: var(--heading);
         font-size: clamp(5rem, 7vw, 9rem);
         line-height: 1.1;
         margin-bottom: 1.6rem;
@@ -246,7 +258,7 @@ h2 {
 
     p {
         font-size: clamp(1.1rem, 3vw, 1.6rem);
-        max-width: 600px;
+        max-width: 60rem;
         letter-spacing: 2px;
         font-size: 1.2rem;
         font-weight: 300;
@@ -345,7 +357,7 @@ footer {
         text-transform: uppercase;
         margin-bottom: 1.6rem;
         letter-spacing: .4rem;
-        color: #555;
+        color: var(--accent);
     }
 
     h2 {
@@ -354,7 +366,7 @@ footer {
 
     p {
         font-size: 1.3rem;
-        color: #555;
+        color: var(--accent)
     }
 }
 
@@ -392,7 +404,7 @@ footer {
 
             img {
                 aspect-ratio: 1;
-                filter: grayscale(1);
+                filter: grayscale(1) contrast(1.1);
                 transition: .5s;
             }
 
@@ -407,7 +419,7 @@ footer {
 
         .gallery-item:hover {
             img {
-                filter: grayscale(0);
+                filter: grayscale(0) contrast(1);
             }
         }
     }
@@ -422,6 +434,12 @@ footer {
         opacity: 0;
     }
 
+    .visualizer-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 
 }
 
@@ -432,14 +450,13 @@ footer {
     width: 100%;
     height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
     backdrop-filter: blur(10px);
-    background: #000000;
+    background: var(--black);
     animation: visu .5s ease forwards;
 
     .prev {
-        position: absolute;
+        position: relative;
         left: 1rem;
         letter-spacing: .4rem;
         z-index: 2;
@@ -448,11 +465,12 @@ footer {
     }
 
     .next {
-        position: absolute;
+        position: relative;
         right: 1rem;
         letter-spacing: .4rem;
         padding: 1rem;
         cursor: pointer;
+        z-index: 2;
     }
 
     .close {
@@ -467,7 +485,6 @@ footer {
     .visualizer-wrapper {
         width: 100%;
         display: flex;
-        justify-content: center;
         align-items: center;
         user-select: none;
         height: 100%;

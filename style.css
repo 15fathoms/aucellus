@@ -498,6 +498,12 @@ footer {
         width: auto;
         max-width: 80%;
         animation: visu .5s ease .8s forwards;
+        filter: grayscale(1) contrast(1.1);
+        transition: filter .5s ease;
+    }
+
+    .swiper-slide-active img {
+        filter: grayscale(0) contrast(1);
     }
 }
 

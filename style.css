@@ -456,7 +456,7 @@ footer {
     animation: visu .5s ease forwards;
 
     .prev {
-        position: relative;
+        position: absolute;
         left: 1rem;
         letter-spacing: .4rem;
         z-index: 2;
@@ -465,12 +465,18 @@ footer {
     }
 
     .next {
-        position: relative;
+        position: absolute;
         right: 1rem;
         letter-spacing: .4rem;
         padding: 1rem;
         cursor: pointer;
         z-index: 2;
+    }
+
+    @media screen and (min-width: 769px) {
+        .prev, .next {
+            position: relative;
+        }
     }
 
     .close {
